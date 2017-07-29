@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace app
+namespace WebUI
 {
     public class Program
     {
@@ -16,7 +16,6 @@ namespace app
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseApplicationInsights()
                 .Build();
 
             host.Run();

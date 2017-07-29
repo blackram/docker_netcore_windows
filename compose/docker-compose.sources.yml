@@ -1,0 +1,18 @@
+version: '2.1'
+
+services:
+   ci-build:
+     image: microsoft/aspnetcore-build:1.1.2-nanoserver
+     container_name: build
+     working_dir: c:/src
+     command: powershell "dotnet restore ; dotnet publish --configuration "${WEBUI_CONFIG}" --output obj/Docker "
+
+ #    ports :
+  #   - 80:80
+     volumes: 
+      - ./WebUI:c:/src:rw
+
+networks:
+  default:
+    external:
+      name: nat

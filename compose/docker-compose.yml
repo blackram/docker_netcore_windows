@@ -1,0 +1,20 @@
+version: '2.1'
+
+services:
+  webui:
+    image: webui:dev
+    build:
+        context: .\WebUI
+        dockerfile: Dockerfile
+        args:
+          source: obj/docker
+          http_port: 81
+    ports:
+      - "80"
+    labels:
+      - "au.com.live.blackram.targetoperatingsystem=windows"
+
+networks:
+  default:
+    external:
+      name: nat
